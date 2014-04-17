@@ -1,0 +1,12 @@
+Options +FollowSymLinks
+RewriteEngine On
+
+RewriteRule ^contentPages/(.*)$ contentPages/$1 [L]
+RewriteRule ^css/(.*)$ css/$1 [L]
+RewriteRule ^img/(.*)$ img/$1 [L]
+RewriteRule ^js/(.*)$ js/$1 [L]
+RewriteRule ^cms/(.*)$ content.php [L]
+
+RewriteRule ^content.php$ content.php [L]
+
+RewriteRule ^(.*)$ index.html [L]

@@ -1,0 +1,37 @@
+/* 
+    Document   : local
+    Created on : 16/04/2014, 1:44:01 PM
+    Author     : thewolf
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+root { 
+    display: block;
+}
+
+#mainbody{
+    min-height:600px;
+}
+div#footer {
+	border-top:2px double gray;
+}
+
+.pageloader{
+    text-align: center;
+    min-height:600px;
+}
+.pageloader image{
+    width:100px;
+    height:100px;
+}
+
+#field3{
+    height:6em;
+    width:100%;
+}
+
+.error{
+    display:hidden;
+    color:red;
+}

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Fairy Paw Prints</title>
+        <!-- Bootstrap -->
+        <link href="/css/bootstrap.min.css" rel="stylesheet">
+        <script src="/js/bootstrap.min.js"></script>
+        <script src="http://code.jquery.com/jquery-latest.js"></script>
+        <script src="/js/slides.min.jquery.js"></script>
+        <link href="css/local.css" rel="stylesheet">
+        <script src="js/angular.min.js"></script>
+        <script src="js/local.js"></script>
+    </head>
+    <body onload="localCode.init();">
+        <div class="container">
+            <div>
+                <a href=""><img src="img/fairypawprints.png" /></a>
+            </div>
+
+            <div class="navbar">
+                <div class="navbar-inner">
+                    <ul id="navBar" class="nav">
+                        <!-- To be filled in by AJAX request -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    <script type="text/javascript">
+        var runningdelay = true;
+        function delayclose(){
+            runningdelay = true;
+            
+            setTimeout(function(){
+                if (runningdelay){
+                $('.dropdown').removeClass('open');
+            }},1500);
+        }
+        
+        function delayabort(){
+            runningdelay = false;
+        }
+        
+    </script>    
+
+    
+    <div id="mainbody" class="container maintext">
+        
+        <!-- To be filled in by AJAX Request -->
+    </div>
+    
+    <div id="pageloaderModel" class="modal hide fade in" style="display: none; ">  
+    <div class="modal-body">  
+        <h1><image height="50" width="50" src="img/loader.gif" /> Loading Page </h1>               
+    </div>  
+    </div>  
+    <div id="errorModel" class="modal hide fade in" style="display: none; ">  
+    <div class="modal-body">  
+        <h3>Page Loading Failed. Please try again. </h3>               
+    </div>  
+    </div>     
+    <div id="footer" class="container footer text-center">
+        (c) All content Copyright Alexandra Chevallier & Neale Wolfson 2012 -> 2014.  All images used as per the Creative Commons License. 
+    </div>
+    </body>
+</html>
