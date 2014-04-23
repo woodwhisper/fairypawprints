@@ -1,0 +1,16 @@
+<h2>Contact Us</h2>
+<p>This page is for encouragement and or requests for our hire on specific projects</p>
+<p>If you wish to contact either of us for a specific editing/proofreading project (Alex) or a web programming contract/position (Neale) please fill in the form below. </p>
+<form id="contactUsForm" onsubmit="return localCode.submitContact();" method="POST">
+    <fieldset>
+        <div><label for="field0">Your Name</label><input type="text" id="field0" name="field0" /></div>
+        <div><label for="field1">Your Email</label><input type="text" id="field1" name="field1" /></div>
+        <div><label for="field2">Your Contact Number</label><input type="text" id="field2" name="field2" /></div>
+        <div><label for="field3">A brief description of your request</label> <br/>
+            <textarea  id="field3" name="field3"></textarea>
+        </div>
+        <input type="submit" />
+    </fieldset>
+    <div class="error hide" id="contactUsError">Please double check and fill in all the fields of this form.</div>
+</form>
+    
