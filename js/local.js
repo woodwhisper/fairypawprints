@@ -1,70 +1,84 @@
-var localCode = {
+var wolfcms = angular.module('wolfcms',[]);
+
+wolfcms.controller('pageController', ['$scope', '$http', '$sce', function($scope,$http,$sce){
+    $scope.pageLoad = function(pageLoadId){
+        var url = wolfcms.initialNav.nav[pageLoadId].url;
+        $http.get(url).success(function(data){
+            $scope.bodyContent = $sce.trustAsHtml(data);
+            $scope.nav = wolfcms.initialNav.nav;
+            history.pushState({id:  $scope.nav[pageLoadId].friendlyurl}, '',  $scope.nav[pageLoadId].friendlyurl);
+            $scope.nav[pageLoadId].active = 'active';
+        });
+        return false;
+    };
+    $scope.pageLoad(1);
+}]);
+
+wolfcms.initialNav = {
     nav: [
         {
             name: 'Home',
             url: 'contentPages/subpage1.html',
             friendlyurl: 'home',
-            nav: 1
+            nav: 0,
+            active: ''
         },
 
         {
             name: 'Writing',
             url: 'contentPages/subpage2.html',
             friendlyurl: 'writing',
-            nav: 1
+            nav: 1,
+            active: ''
         },
 
         {
             name: 'Video',
             url: 'contentPages/subpage3.html',
             friendlyurl: 'video',
-            nav: 1
+            nav: 1,
+            active: ''
         },
 
         {
             name: 'Web Developement',
             url: 'contentPages/subpage4.html',
             friendlyurl: 'development',
-            nav: 1
+            nav: 1,
+            active: ''
         },
 
         {
             name: 'Free Reading & Viewing',
             url: 'contentPages/freestuff.html',
             friendlyurl: 'free',
-            nav: 1
+            nav: 1,
+            active: ''
         },
         {
             name: 'Store',
             url: 'contentPages/store.html',
             friendlyurl: 'store',
-            nav: 1
+            nav: 1,
+            active: ''
         },
         {
             name: 'Contact Us',
             url: 'contentPages/subpage5.html',
             friendlyurl: 'contact',
-            nav: 1
+            nav: 1,
+            active: ''
         },
         {
             name: 'Thank You',
             url: 'contentPages/subpage5_1.html',
-            nav: 0
+            nav: 0,
+            active: ''
         }
-    ],
-    currentNav: 0,
+    ]};
 
-    init: function () {
-        var currentURL = window.location.href;
-        var urlParts = currentURL.split('/');
-        var subURL = '';
-        for (i = 4; i < urlParts.length; i++) {
-            if (urlParts[i] !== '') {
-                subURL = subURL + '/' + urlParts[i];
-            }
-        }
-        this.loadPage(this.getPageIdByURI(subURL));
-    },
+
+var localCode = {
 
     getPageIdByURI: function (uriPart) {
         if (uriPart == "") {
@@ -80,50 +94,6 @@ var localCode = {
 
     pageCache: [],
 
-    buildNav: function () {
-        var navHTML = '';
-        var active = '';
-        for (i = 0; i < this.nav.length; i++) {
-            active = '';
-            if (i == this.currentNav) {
-                active = 'active';
-            }
-            if (this.nav[i].nav == 1) {
-                navHTML = navHTML + '<li class="' + active + '"><a href="' + this.nav[i].friendlyurl + '" onclick="return localCode.loadPage(\'' + i + '\');" >' + this.nav[i].name + '</a></li>';
-            }
-        }
-        $('#navBar').html(navHTML);
-    },
-    loadPage: function (pageId) {
-        if (this.pageCache[pageId] === undefined) {
-            $('#pageloaderModel').show();
-            var localObj = this;
-            var url = this.nav[pageId].url;
-            $.ajax({
-                url: url
-            }).success(function (data) {
-                $('#pageloaderModel').hide();
-                localObj.currentNav = pageId;
-                $('#mainbody').html(data);
-                localObj.pageCache[pageId] = data;
-                localObj.buildNav();
-                history.pushState({id: localObj.nav[pageId].friendlyurl}, '', localObj.nav[pageId].friendlyurl);
-            }).error(function (data) {
-                $('#pageloaderModel').hide();
-                $('#errorModel').show();
-                setTimeout(function () {
-                        $('#errorModel').hide();
-                    }
-                    , 3000);
-            });
-        } else {
-            $('#mainbody').html(this.pageCache[pageId]);
-            this.currentNav = pageId;
-            this.buildNav();
-            history.pushState({id: this.nav[pageId].friendlyurl}, '', this.nav[pageId].friendlyurl);
-        }
-        return false;
-    },
 
     submitContact: function () {
         var formdata = {};

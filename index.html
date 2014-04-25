@@ -1,15 +1,16 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="wolfcms">
     <head>
         <title>Fairy Paw Prints</title>
         <!-- Bootstrap -->
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <link href="css/local.css" rel="stylesheet">
-        <script src="js/bootstrap.min.js"></script>
         <script src="http://code.jquery.com/jquery-latest.js"></script>
+
+        <script src="https://code.angularjs.org/1.2.9/angular.js"></script>
         <script src="js/local.js"></script>
     </head>
-    <body onload="localCode.init();">
+    <body ng-controller="pageController">
         <div class="container">
             <div>
                 <a href=""><img src="img/fairypawprints.png" /></a>
@@ -18,14 +19,16 @@
             <div class="navbar">
                 <div class="navbar-inner">
                     <ul id="navBar" class="nav">
+                        <li ng-repeat="navItem in nav" class="{{navItem.active}}">
+                            <a href="{{navItem.friendlyurl}}">{{navItem.name}}</a>
+                        </li>
                         <!-- To be filled in by AJAX request -->
                     </ul>
                 </div>
             </div>
         </div>
     
-    <div id="mainbody" class="container maintext">
-        
+    <div id="mainbody" class="container maintext" ng-bind-html="bodyContent">
         <!-- To be filled in by AJAX Request -->
     </div>
     
