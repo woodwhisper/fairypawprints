@@ -20,7 +20,7 @@
                 <div class="navbar-inner">
                     <ul id="navBar" class="nav">
                         <li ng-repeat="navItem in nav" class="{{navItem.active}}">
-                            <a href="{{navItem.friendlyurl}}">{{navItem.name}}</a>
+                            <a ng-click="pageLoad(navItem.id)">{{navItem.name}}</a>
                         </li>
                         <!-- To be filled in by AJAX request -->
                     </ul>

@@ -1,22 +1,52 @@
-var wolfcms = angular.module('wolfcms',[]);
+var wolfcms = angular.module('wolfcms', [])
+    .config(function ($locationProvider) {
+        $locationProvider.html5Mode(true);
+    });
 
-wolfcms.controller('pageController', ['$scope', '$http', '$sce', function($scope,$http,$sce){
-    $scope.pageLoad = function(pageLoadId){
-        var url = wolfcms.initialNav.nav[pageLoadId].url;
-        $http.get(url).success(function(data){
-            $scope.bodyContent = $sce.trustAsHtml(data);
-            $scope.nav = wolfcms.initialNav.nav;
-            history.pushState({id:  $scope.nav[pageLoadId].friendlyurl}, '',  $scope.nav[pageLoadId].friendlyurl);
-            $scope.nav[pageLoadId].active = 'active';
-        });
-        return false;
-    };
-    $scope.pageLoad(1);
-}]);
+wolfcms.controller('pageController', ['$scope', '$http', '$sce', '$location',
+    function ($scope, $http, $sce, $location) {
+        $scope.pageLoad = function (pageLoadId) {
+            var url = wolfcms.initialNav.nav[pageLoadId].url;
+            var i;
+            $http.get(url).success(function (data) {
+                $scope.bodyContent = $sce.trustAsHtml(data);
+                $scope.nav = wolfcms.initialNav.nav;
+                $location.url($scope.nav[pageLoadId].friendlyurl);
+                for (i = 0; i < $scope.nav.length; i++) {
+                    $scope.nav[i].active = '';
+                }
+                $scope.nav[pageLoadId].active = 'active';
+            });
+        };
+
+        /**
+         * Location determined and loaded.
+         */
+
+
+         var findLocationId = function (uriPart, navStructure) {
+            navStructure = wolfcms.initialNav.nav;
+            if (uriPart == "") {
+                return 0; // Default empty
+            }
+            for (i = 0; i < navStructure.length; i++) {
+                if (uriPart == '/' + navStructure[i].friendlyurl) {
+                    return i;
+                }
+            }
+            return 0; // Default not found
+        };
+
+        var currentUrl = $location.url();
+        var loadPage = findLocationId(currentUrl,$scope.nav);
+
+        $scope.pageLoad(loadPage);
+    }]);
 
 wolfcms.initialNav = {
     nav: [
         {
+            id: 0,
             name: 'Home',
             url: 'contentPages/subpage1.html',
             friendlyurl: 'home',
@@ -25,6 +55,7 @@ wolfcms.initialNav = {
         },
 
         {
+            id: 1,
             name: 'Writing',
             url: 'contentPages/subpage2.html',
             friendlyurl: 'writing',
@@ -33,6 +64,7 @@ wolfcms.initialNav = {
         },
 
         {
+            id: 2,
             name: 'Video',
             url: 'contentPages/subpage3.html',
             friendlyurl: 'video',
@@ -41,6 +73,7 @@ wolfcms.initialNav = {
         },
 
         {
+            id: 3,
             name: 'Web Developement',
             url: 'contentPages/subpage4.html',
             friendlyurl: 'development',
@@ -49,6 +82,7 @@ wolfcms.initialNav = {
         },
 
         {
+            id: 4,
             name: 'Free Reading & Viewing',
             url: 'contentPages/freestuff.html',
             friendlyurl: 'free',
@@ -56,6 +90,7 @@ wolfcms.initialNav = {
             active: ''
         },
         {
+            id: 5,
             name: 'Store',
             url: 'contentPages/store.html',
             friendlyurl: 'store',
@@ -63,6 +98,7 @@ wolfcms.initialNav = {
             active: ''
         },
         {
+            id: 6,
             name: 'Contact Us',
             url: 'contentPages/subpage5.html',
             friendlyurl: 'contact',
@@ -70,6 +106,7 @@ wolfcms.initialNav = {
             active: ''
         },
         {
+            id: 7,
             name: 'Thank You',
             url: 'contentPages/subpage5_1.html',
             nav: 0,
@@ -92,8 +129,6 @@ var localCode = {
         return 0; // Default not found
     },
 
-    pageCache: [],
-
 
     submitContact: function () {
         var formdata = {};
@@ -112,8 +147,6 @@ var localCode = {
         } else {
             $('#contactUsError').show();
         }
-
-        return false;
     }
 }
 
