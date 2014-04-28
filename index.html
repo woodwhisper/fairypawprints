@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html ng-app="wolfcms">
+<html ng-app="wolfcms" ng-controller="pageController">
     <head>
-        <title>Fairy Paw Prints</title>
+        <title ng-bind="title">Fairy Paw Prints</title>
         <!-- Bootstrap -->
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <link href="css/local.css" rel="stylesheet">
@@ -9,8 +9,9 @@
 
         <script src="https://code.angularjs.org/1.2.9/angular.js"></script>
         <script src="js/local.js"></script>
+        <meta ng-bind="description" description="A Fairy Paw Prints website" />
     </head>
-    <body ng-controller="pageController">
+    <body>
         <div class="container">
             <div>
                 <a href=""><img src="img/fairypawprints.png" /></a>
@@ -20,7 +21,7 @@
                 <div class="navbar-inner">
                     <ul id="navBar" class="nav">
                         <li ng-repeat="navItem in nav" class="{{navItem.active}}">
-                            <a ng-click="pageLoad(navItem.id)">{{navItem.name}}</a>
+                            <a href="/{{navItem.friendlyurl}}" ng-click="pageLoad(navItem.id)" ng-show="navItem.nav == '1'" >{{navItem.name}}</a>
                         </li>
                         <!-- To be filled in by AJAX request -->
                     </ul>
@@ -28,7 +29,7 @@
             </div>
         </div>
     
-    <div id="mainbody" class="container maintext" ng-bind-html="bodyContent">
+    <div id="mainbody" class="container maintext" ng-include="contentUrl">
         <!-- To be filled in by AJAX Request -->
     </div>
     
@@ -41,7 +42,10 @@
     <div class="modal-body">  
         <h3>Page Loading Failed. Please try again. </h3>               
     </div>  
-    </div>     
+    </div>
+    <div class="text-center">
+        <image id="bannerad" height="60" width=460 src="img/testbanner.jpg"/>
+    </div>
     <div id="footer" class="container footer text-center">
         (c) All content Copyright Alexandra Chevallier & Neale Wolfson 2012 -> 2014.  All images used as per the Creative Commons License. 
     </div>

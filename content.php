@@ -5,7 +5,7 @@
  */
 
     // This is a constant to be removed from the uri. if it isn't found generate an error.
-$base_uri = '/fairypawprints/cms';
+$base_uri = '/cms';
 ini_set("display_errors",0);
 try{
     ob_start();

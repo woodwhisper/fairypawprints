@@ -11,7 +11,7 @@ root {
 }
 
 #mainbody{
-    min-height:600px;
+    min-height:300px;
 }
 div#footer {
 	border-top:2px double gray;
@@ -19,7 +19,7 @@ div#footer {
 
 .pageloader{
     text-align: center;
-    min-height:600px;
+    min-height:300px;
 }
 .pageloader image{
     width:100px;

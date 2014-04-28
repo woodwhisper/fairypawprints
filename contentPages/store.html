@@ -1,3 +1,4 @@
+<div ng-controller="comingSoon">
 <h2>Buy from us</h2>
 <p>This is the page where we hope to become rich and famous</p>
 <p>OK, where we hope to be able to eat next week.  Alex's writings are available from Amazon.com, and we hope you enjoy
@@ -6,9 +7,21 @@
 <h3>Published items</h3>
 <h4>Victoria Harper, Investigative Mage</h4>
 <ul>
-    <li><a href="">First Victoria Harper novelette</a> (Amazon. Coming soon)</li>
+    <li><a href="" ng-click="comingSoon()">First Victoria Harper novelette</a> (Amazon. Coming soon)</li>
 </ul>
 <h4>Jennings</h4>
 <ul>
-    <li><a href="">First Jennings novelette</a> (Amazon. Coming Soon)</li>
+    <li><a href="" ng-click="comingSoon()">First Jennings novelette</a> (Amazon. Coming Soon)</li>
 </ul>
+    <div id="comingSoon" class="modal hide fade in" style="display: none;">
+        <div class="modal-header">
+            <h4>Book not yet available.</h4>
+        </div>
+        <div class="modal-body">
+            this book is being worked on and due for release soon, thank you for your interest.
+        </div>
+        <div class="modal-footer">
+            <a href="#" class="btn" data-dismiss="modal" ng-click="comingSoonClose()">Close</a>
+        </div>
+    </div>
+</div>
