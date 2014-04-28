@@ -7,7 +7,7 @@ class Cms_FeedbackController extends Cms_AbstractController{
         $message .= "Phone ".$this->_requestParams['phone']."\n";
         $message .= "Feedback \n ".$this->_requestParams['feedback']."\n";
         
-        mail('wolfie@digitaltapestries.com',$subject,$message,null,"-f webForm@digitaltapestries.com");
+        mail('woodwhisperoz@gmail.com',$subject,$message,null,"-f webForm@digitaltapestries.com");
         return "Feedback Submitted successfully.";
     }
 }
