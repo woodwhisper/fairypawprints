@@ -18,7 +18,7 @@ try{
     $remaining_uri = substr($request_url, strlen($base_uri) + 1);
     $breakout = split('/',$remaining_uri);
     
-    if (count($breakout < 2)){
+    if (count($breakout) < 2){
         throw new Exception('Invalid request');
     }
     
