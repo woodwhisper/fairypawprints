@@ -8,5 +8,6 @@ RewriteRule ^js/(.*)$ js/$1 [L]
 RewriteRule ^cms/(.*)$ content.php [L]
 
 RewriteRule ^content.php$ content.php [L]
+RewriteRule ^sitemap.xml$ sitemap.xml [L]
 
 RewriteRule ^(.*)$ index.html [L]

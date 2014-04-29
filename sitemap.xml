@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.google.com/schemas/sitemap/0.84">
+
+    <!-- generator="ScriptSocket - http://www.scriptsocket.com/sitemaps.php" -->
+    <url>
+        <loc>http://fairypawprints.com/</loc>
+        <lastmod>2014-04-29</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+
+    <url>
+        <loc>http://fairypawprints.com/writing</loc>
+        <lastmod>2014-04-29</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+
+    <url>
+        <loc>http://fairypawprints.com/video</loc>
+        <lastmod>2014-04-29</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+
+    <url>
+        <loc>http://fairypawprints.com/contact</loc>
+        <lastmod>2014-04-29</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+
+    </url>
+    <url>
+        <loc>http://fairypawprints.com/store</loc>
+        <lastmod>2014-04-29</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+
+    <url>
+        <loc>http://fairypawprints.com/free</loc>
+        <lastmod>2014-04-29</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+
+
+</urlset>
