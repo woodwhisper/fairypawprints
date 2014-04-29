@@ -9,5 +9,6 @@ RewriteRule ^cms/(.*)$ content.php [L]
 
 RewriteRule ^content.php$ content.php [L]
 RewriteRule ^sitemap.xml$ sitemap.xml [L]
+RewriteRule ^google2a15af27462c9835.html$ google2a15af27462c9835.html [L]
 
 RewriteRule ^(.*)$ index.html [L]
