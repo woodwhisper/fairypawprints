@@ -9,6 +9,8 @@
 
         <script src="js/angular.min.js"></script>
         <script src="js/local.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+
         <meta ng-bind="description" description="A Fairy Paw Prints website" />
     </head>
     <body>
@@ -17,16 +19,16 @@
                 <a href=""><img src="img/fairypawprints.png" /></a>
             </div>
 
-            <div class="navbar">
-                <div class="navbar-inner">
-                    <ul id="navBar" class="nav">
+            <nav class="nav navbar navbar-default">
+                <div class="collapse navbar-collapse">
+                    <ul id="navBar" class="nav navbar-nav">
                         <li ng-repeat="navItem in nav" class="{{navItem.active}}">
-                            <a href="/{{navItem.friendlyurl}}" ng-click="pageLoad(navItem.id)" ng-show="navItem.nav == '1'" >{{navItem.name}}</a>
+                            <a href="{{navItem.friendlyurl}}" ng-click="pageLoad(navItem.id)" ng-show="navItem.nav == '1'" >{{navItem.name}}</a>
                         </li>
                         <!-- To be filled in by AJAX request -->
                     </ul>
                 </div>
-            </div>
+            </nav>
         </div>
     
     <div id="mainbody" class="container maintext" ng-include="contentUrl">

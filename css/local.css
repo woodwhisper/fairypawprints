@@ -6,8 +6,8 @@
         Purpose of the stylesheet follows.
 */
 
-root { 
-    display: block;
+.container {
+    max-width:940px;
 }
 
 #mainbody{
