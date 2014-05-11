@@ -135,6 +135,16 @@ wolfcms.initialNav = {
         },
         {
             id: 5,
+            name: 'Services',
+            url: 'contentPages/services.html',
+            friendlyurl: 'store',
+            nav: 1,
+            active: '',
+            title: 'Fairy Paw Prints - Store',
+            description: "Buy stuff from Fairy Paw Prints"
+        },
+        {
+            id: 6,
             name: 'Store',
             url: 'contentPages/store.html',
             friendlyurl: 'store',
@@ -144,7 +154,7 @@ wolfcms.initialNav = {
             description: "Buy stuff from Fairy Paw Prints"
         },
         {
-            id: 6,
+            id: 8,
             name: 'Contact Us',
             url: 'contentPages/subpage5.html',
             friendlyurl: 'contact',
