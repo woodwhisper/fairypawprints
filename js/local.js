@@ -61,7 +61,7 @@ wolfcms.controller('contactusform', ['$scope', function ($scope) {
                 url: 'cms/feedback/store',
                 data: formdata
             });
-            $scope.pageLoad(7);
+            $scope.pageLoad(8);
         } else {
             $('#contactUsError').show();
         }
@@ -154,7 +154,7 @@ wolfcms.initialNav = {
             description: "Buy stuff from Fairy Paw Prints"
         },
         {
-            id: 8,
+            id: 7,
             name: 'Contact Us',
             url: 'contentPages/subpage5.html',
             friendlyurl: 'contact',
@@ -164,7 +164,7 @@ wolfcms.initialNav = {
             description: "Contact Fairy Paw Prints"
         },
         {
-            id: 7,
+            id: 8,
             name: 'Thank You',
             url: 'contentPages/subpage5_1.html',
             nav: 0,
