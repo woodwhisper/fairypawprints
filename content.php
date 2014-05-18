@@ -6,7 +6,7 @@
 
     // This is a constant to be removed from the uri. if it isn't found generate an error.
 $base_uri = '/cms';
-ini_set("display_errors",0);
+ini_set("display_errors",1);
 try{
     ob_start();
     include_once('cms/controller/abstractController.php');
@@ -16,7 +16,7 @@ try{
         throw new Exception('Invalid request');
     }
     $remaining_uri = substr($request_url, strlen($base_uri) + 1);
-    $breakout = split('/',$remaining_uri);
+    $breakout = explode('/',$remaining_uri);
     
     if (count($breakout) < 2){
         throw new Exception('Invalid request');
