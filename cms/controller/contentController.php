@@ -45,6 +45,8 @@ class Cms_ContentController extends Cms_AbstractController{
      *   Would normally work with a DB but as i've been lazy with this, just going to work with files.
      */
     public function publishContentAction(){
+        return true;
+        // disabled
         $currentTime = time();
         if (file_exists($this->_publishCurrent)){
             $currentVersion = file_get_contents($this->_publishCurrent);
