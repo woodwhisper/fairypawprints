@@ -6,6 +6,7 @@ RewriteRule ^css/(.*)$ css/$1 [L]
 RewriteRule ^img/(.*)$ img/$1 [L]
 RewriteRule ^js/(.*)$ js/$1 [L]
 RewriteRule ^cms/(.*)$ content.php [L]
+RewriteRule ^direct/(.*)$ direct/$1 [L]
 
 RewriteRule ^content.php$ content.php [L]
 RewriteRule ^sitemap.xml$ sitemap.xml [L]
