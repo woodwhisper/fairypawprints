@@ -34,6 +34,11 @@ try{
     if (!method_exists($controller,$actionMethod)){
         throw new Exception('Missing action function. Cannot run.');
     }
+
+    // Load data models
+    include('cms/model/wolfDataAbstract.php');
+    include('cms/model/user.php');
+
     $return = $controller->$actionMethod();
     ob_end_clean();
 } catch(Exception $e){

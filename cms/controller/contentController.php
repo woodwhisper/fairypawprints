@@ -4,6 +4,27 @@ class Cms_ContentController extends Cms_AbstractController{
     private $_publishSchedule = 'cms/data/publish.date';
     private $_publishCurrent = 'cms/data/publish.current';
 
+    public function addAdminUserAction(){
+        $newUser = Cms_User::create();
+        $newUser->username = 'admin';
+        $newUser->password = 'admin';
+        $newUser->save();
+        return "Done";
+    }
+
+    public function testLoginAction(){
+        if (empty($this->_requestParams['username'])){
+            return "No file found";
+        }
+        if (empty($this->_requestParams['password'])){
+            return "No file found";
+        }
+        $adminUser = Cms_User::load(0);
+        var_dump($adminUser);
+        exit;
+
+    }
+
     public function getPDFAction(){
         if (empty($this->_requestParams['pdf'])){
             return "No file found";
