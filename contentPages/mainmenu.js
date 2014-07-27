@@ -56,16 +56,6 @@ description: "Free stuff to enjoy by Fairy Paw Prints"
 },
 {
 id: 5,
-name: 'Services',
-url: 'contentPages/services.html',
-friendlyurl: 'store',
-nav: 1,
-active: '',
-title: 'Fairy Paw Prints - Store',
-description: "Buy stuff from Fairy Paw Prints"
-},
-{
-id: 6,
 name: 'Store',
 url: 'contentPages/store.html',
 friendlyurl: 'store',
@@ -75,7 +65,7 @@ title: 'Fairy Paw Prints - Store',
 description: "Buy stuff from Fairy Paw Prints"
 },
 {
-id: 7,
+id: 6,
 name: 'Contact Us',
 url: 'contentPages/subpage5.html',
 friendlyurl: 'contact',
@@ -85,7 +75,7 @@ title: 'Fairy Paw Prints - Contact Us',
 description: "Contact Fairy Paw Prints"
 },
 {
-id: 8,
+id: 7,
 name: 'Thank You',
 url: 'contentPages/subpage5_1.html',
 nav: 0,

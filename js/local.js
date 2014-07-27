@@ -61,7 +61,7 @@ wolfcms.controller('contactusform', ['$scope', function ($scope) {
                 url: 'cms/feedback/store',
                 data: formdata
             });
-            $scope.pageLoad(8);
+            $scope.pageLoad(7);
         } else {
             $('#contactUsError').show();
         }
