@@ -81,5 +81,14 @@ url: 'contentPages/subpage5_1.html',
 nav: 0,
 active: '',
 title: 'Fairy Paw Prints - Thank You'
+},
+{
+id: 8,
+name: 'Login',
+url: 'contentPages/login.php',
+friendlyurl: 'login',
+nav: 0,
+active: '',
+title: 'Fairy Paw Prints - Admin Login'
 }
 ]};

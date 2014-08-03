@@ -4,7 +4,7 @@ var wolfcms = angular.module('wolfcms', [])
     });
 
 wolfcms.controller('pageController', ['$scope', '$http', '$sce', '$location',
-    function ($scope, $http, $sce, $location, $compile) {
+    function ($scope, $http, $sce, $location) {
         $scope.pageLoad = function (pageLoadId) {
             var url = wolfcms.initialNav.nav[pageLoadId].url;
             var i;
@@ -77,6 +77,38 @@ wolfcms.controller('comingSoon', ['$scope', function ($scope){
     }
 
 }]);
+
+wolfcms.controller('loginController', ['$scope', function ($scope) {
+    $scope.adminUrl = '/contentPages/admin/login.html';
+
+    var ajaxLogin = function(username,password){
+        $.ajax({
+            url: '/cms/content/testLogin/username/' + username + '/password/' + password,
+            dataType: 'json'
+        }).done(function (response){
+            if (response.return){
+                $.ajax({
+                    url: '/cms/content/getPageUrl/uri/mainadmin',
+                    dataType: 'json'
+                }).done(function (loggedinresponse){
+                    $scope.adminUrl = loggedinresponse.return;
+                });
+            } else {
+                console.log('Failed login');
+            }
+        });
+    }
+
+    $scope.trylogin = function (user) {
+        if (typeof user == 'undefined'){
+            $('#errorLogginIn').show();
+        } else {
+            ajaxLogin(user.username, user.password);
+        }
+    };
+
+}]);
+
 /**
  * This is to prevent older browsers from dieing when trying to backfil the URL.
  */

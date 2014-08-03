@@ -28,16 +28,26 @@ abstract class WolfDataAbstract
         }
     }
 
-    static function load($id)
+    static function loadtable()
     {
         $tableName = get_called_class();
-        if (isset(self::$_database[$tableName][$id])) {
-            return self::$_database[$tableName][$id];
+        if (isset(self::$_database[$tableName])) {
+            return self::$_database[$tableName];
         } else {
             if (file_exists('cms/data/' . $tableName . '.php')) {
                 include 'cms/data/' . $tableName . '.php';
             }
-            return self::$_database[$tableName][$id];
+            return self::$_database[$tableName];
+        }
+    }
+
+    static function load($id)
+    {
+        $tableArray = self::loadtable();
+        if (isset($tableArray[$id])) {
+            return $tableArray[$id];
+        } else {
+            return null;
         }
     }
 

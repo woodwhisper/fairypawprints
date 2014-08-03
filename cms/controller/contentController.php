@@ -4,6 +4,13 @@ class Cms_ContentController extends Cms_AbstractController{
     private $_publishSchedule = 'cms/data/publish.date';
     private $_publishCurrent = 'cms/data/publish.current';
 
+    public function getPageUrlAction(){
+        $uri = $this->_requestParams['uri'];
+        if ($uri == 'mainadmin'){
+            return '/contentPages/admin/main.html';
+        }
+    }
+
     public function addAdminUserAction(){
         $newUser = Cms_User::create();
         $newUser->username = 'admin';
@@ -19,10 +26,8 @@ class Cms_ContentController extends Cms_AbstractController{
         if (empty($this->_requestParams['password'])){
             return "No file found";
         }
-        $adminUser = Cms_User::load(0);
-        var_dump($adminUser);
-        exit;
-
+        $user = Cms_User::findByName($this->_requestParams['username']);
+        return $user->checkpassword($this->_requestParams['password']);
     }
 
     public function getPDFAction(){
